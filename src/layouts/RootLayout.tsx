@@ -8,8 +8,9 @@ const RootLayout = () => {
         <Link to="/">Home</Link>
         <Link to="about">About</Link>
         <Link to="contact">Contact</Link>
+        <Link to="group/1">🥇Group One</Link>
 
-        <Link to="login">Log Out</Link>
+        <Link to="/login">Log Out</Link>
       </nav>
 
       <Outlet />

@@ -9,6 +9,7 @@ import AuthenticatedRoute from "../login/AuthenticatedRoute";
 import LoginComponent from "../login/LoginComponent";
 
 import { NotFoundPageComponent } from "../404/404";
+import LandingPage from "../landing/LandingPage";
 
 const RouterComponent = (): JSX.Element => {
   return (
@@ -16,8 +17,10 @@ const RouterComponent = (): JSX.Element => {
       <Routes>
         <Route path="/login" element={<LoginComponent />} />
 
+        <Route path="/" element={<LandingPage />} />
+
         <Route
-          path="/"
+          path="/board"
           element={
             <AuthenticatedRoute isSignedIn={true}>
               <RootLayout />

@@ -1,4 +1,9 @@
-@import "./mixins.scss";
+@import "mixins.scss";
+@import "variables.scss";
+
+.global_container {
+  background-image: $section-background-gradient;
+}
 
 .wrapper {
   width: 1024px;

@@ -1,0 +1,86 @@
+@import "../../assets/styles/variables.scss";
+
+$onebg: lightblue;
+$twobg: darkslateblue;
+
+.section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.section_underlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.parallaxed {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+h2,
+p,
+button {
+  position: relative;
+  z-index: 10;
+}
+
+.patterned_section {
+  background-color: #e5e5f7;
+  opacity: 0.1;
+  background-image: linear-gradient(
+      #8fcaf2 7.6000000000000005px,
+      transparent 7.6000000000000005px
+    ),
+    linear-gradient(
+      90deg,
+      #8fcaf2 7.6000000000000005px,
+      transparent 7.6000000000000005px
+    ),
+    linear-gradient(
+      #8fcaf2 3.8000000000000003px,
+      transparent 3.8000000000000003px
+    ),
+    linear-gradient(
+      90deg,
+      #8fcaf2 3.8000000000000003px,
+      #e5e5f7 3.8000000000000003px
+    );
+  background-size: 190px 190px, 190px 190px, 38px 38px, 38px 38px;
+  background-position: -7.6000000000000005px -7.6000000000000005px,
+    -7.6000000000000005px -7.6000000000000005px,
+    -3.8000000000000003px -3.8000000000000003px,
+    -3.8000000000000003px -3.8000000000000003px;
+}
+
+.patterned_dots {
+  background-color: #e5e5f7;
+  opacity: 0.7;
+  background-image: radial-gradient(#444cf7 0.65px, #e5e5f7 0.65px);
+  background-size: 13px 13px;
+}
+
+.patterned_circles {
+  background-color: #e5e5f7;
+  opacity: 0.1;
+  background-image: radial-gradient(circle at center center, #b0b3f3, #e5e5f7),
+    repeating-radial-gradient(
+      circle at center center,
+      #b0b3f3,
+      #b0b3f3,
+      30px,
+      transparent 60px,
+      transparent 30px
+    );
+  background-blend-mode: multiply;
+}
+
+.gradient_bg {
+  background-image: $section-background-gradient;
+}
