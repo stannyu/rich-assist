@@ -11,6 +11,7 @@
   "dependencies": {
     "classnames": "^2.3.2",
     "daisyui": "^2.51.5",
+    "kute.js": "^2.2.4",
     "loadable": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
