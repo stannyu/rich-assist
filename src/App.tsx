@@ -1,16 +1,14 @@
 import { useState } from "react";
+import RouterComponent from "./components/router/RouterComponent";
 
-import "./styles/App.scss";
+import "./assets/styles/App.scss";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const countManipulation = () => {
-    setCount((prevCount) => prevCount + 10 * 1.2);
-  }
-
-  return <div>app: {count}
-  <button onClick={countManipulation}>Add 10!</button></div>;
+  return (
+    <div className="global_container absolute top-0 right-0 bottom-0 left-0">
+      <RouterComponent />
+    </div>
+  );
 }
 
 export default App;

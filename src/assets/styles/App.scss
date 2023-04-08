@@ -1,0 +1,26 @@
+@import "mixins.scss";
+@import "variables.scss";
+
+.global_container {
+  background-image: $section-background-gradient;
+}
+
+.wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  border: 4px solid darkred;
+
+  @include for-tablet {
+    width: 768px;
+    border-color: darkgreen;
+  }
+
+  @include for-phone {
+    width: 400px;
+    border-color: lightsalmon;
+  }
+}
+
+h1 {
+  color: darkcyan;
+}
