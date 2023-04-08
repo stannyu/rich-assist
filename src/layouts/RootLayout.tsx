@@ -1,23 +1,31 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
+import "./layouts.scss";
+
 const RootLayout = () => {
   return (
-    <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="about">About</Link>
-        <Link to="contact">Contact</Link>
-        <Link to="group/1">🥇Group One</Link>
+    <>
+      <div className="viewport_container">
+        <header>
+          <nav>
+            <Link to="/board">Home</Link>
+            <Link to="about">About</Link>
+            <Link to="contact">Contact</Link>
 
-        <Link to="/login">Log Out</Link>
-      </nav>
+            <Link to="/login">Log Out</Link>
+          </nav>
+        </header>
 
-      <Outlet />
-      <footer> 
+        <div className="outlet_container">
+          <Outlet />
+        </div>
+      </div>
+
+      <footer className="footer">
         <p>Footer</p>
       </footer>
-    </div>
+    </>
   );
 };
 
