@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getGroups } from "../../http/groupsApi";
+import { GroupType } from "../../types";
+
+import "../../assets/styles/modal/modal.scss";
+import Modal from "../utils/Modal";
 
 export const groupsData = [
   {
@@ -76,13 +81,7 @@ export const groupsData = [
   },
 ];
 
-export type Group = {
-  id: number;
-  name: string;
-  todos: Todo[];
-};
-
-export type Todo = {
+export type TodoType = {
   id: number;
   name: string;
   description: string;
@@ -91,11 +90,23 @@ export type Todo = {
 
 const GroupsList = () => {
   const navigate = useNavigate();
-  const [groups, setGroups] = useState<Group[]>([]);
+  const [groups, setGroups] = useState<GroupType[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    setGroups(groupsData);
+    getGroups().then((response) => {
+      setGroups(response);
+    });
   }, []);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const closeModal = () => {
+    console.log('close modal');
+    setIsModalOpen(false);
+  };
 
   const handleGroupClick = (groupId: number) => {
     navigate(`/board/group/${groupId}`);
@@ -103,9 +114,15 @@ const GroupsList = () => {
 
   return (
     <div className="container my-0 mx-auto">
+      <div className="controll_container flex flex-row-reverse">
+        <button className="btn btn-accent" onClick={toggleModal}>
+          + New group
+        </button>
+      </div>
       <h3 className="w-full text-center my-4 text-3xl">Groups List</h3>
       <div className="w-4/5 rounded-xl border-2 border-solid border-orange-300 px-5 py-6 my-0 mx-auto min-h-[80vh] bg-white shadow-xl">
-        {groups.length > 0 &&
+        {groups &&
+          groups.length > 0 &&
           groups.map((group) => (
             <div
               key={group.id}
@@ -113,14 +130,15 @@ const GroupsList = () => {
               onClick={() => handleGroupClick(group.id)}
             >
               <div className="w-5/6">
-                <p>{group.name}</p>
+                <p>{group.title}</p>
               </div>
               <div className="w-1/6 text-right">
-                <p>{group.todos.length}</p>
+                <p>8</p>
               </div>
             </div>
           ))}
       </div>
+      {isModalOpen && <Modal onClose={closeModal}/>}
     </div>
   );
 };
